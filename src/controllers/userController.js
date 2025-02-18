@@ -13,7 +13,10 @@ exports.createUser = async (req, res) => {
 			password: hashPassword,
 		});
 		const newuser = await user.save();
-		res.status(200).json({ message: "successfully user created", newuser });
+		res.status(200).json({
+			message: "successfully user created",
+			newuser,
+		});
 	} catch (error) {
 		return res.json({ error: error.message });
 	}
